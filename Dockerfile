@@ -4,12 +4,11 @@ ENV NODE_ENV=production
 RUN groupadd -r app && useradd -r -g app app
 
 COPY . /opt/app
-WORKDIR /
+WORKDIR /opt/app
 RUN npm i --silent
 
 EXPOSE 10010
 USER app
 
-CMD ["npm","i","--silent"]
 
 CMD ["node", "/opt/app/app.js"]
