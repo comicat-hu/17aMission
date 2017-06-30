@@ -1,6 +1,6 @@
 var URLSafeBase64 = require('urlsafe-base64');
 
-let now = new Date();//'2017-06-29T07:36:17.653Z'
+let now = new Date();
 
 /**
  * getKEY
@@ -39,7 +39,7 @@ function getKEY(req, res) {
 
     res.json(200, {
       "VALUE": db[reqKey],
-      "TS": now
+      "TS": new Date()
     });
 
   }else {
@@ -72,14 +72,14 @@ function deleteKEY(req, res) {
 
     res.json(200, {
       "OLD_VALUE": db[reqKey],
-      "TS": now
+      "TS": new Date()
     });
     delete db[reqKey];
 
   }else {
 
     res.json(200, {
-      "TS": now
+      "TS": new Date()
     });
 
   }
@@ -103,7 +103,7 @@ function postKEY(req, res) {
 
 
     res.json(200, {
-      "TS": now
+      "TS": new Date()
     });
     db[reqKey] = req.body.VALUE;
 
