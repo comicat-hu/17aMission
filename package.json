@@ -12,17 +12,18 @@
     "build-dev": "docker build -t di-eval-dev -f dockerfiles/dev .",
     "build-staging": "docker build -t di-eval-staging -f dockerfiles/staging .",
     "start": "swagger project start",
-    "start-dev-docker": "docker run -it --rm -v $(pwd):/opt/app -p 10010:10010 di-eval-dev",
+    "start-dev-docker": "docker run -it --rm -v $(pwd):/opt/app -p 10010:10010 di-eval-dev /bin/bash",
     "start-docker": "docker run -it --rm -p 10010:10010 di-eval-bp",
     "test": "swagger project test"
   },
   "dependencies": {
+    "request": "^2.81.0",
     "restify": "^4.0.2",
-    "swagger-restify-mw": "^0.1.0"
+    "swagger-restify-mw": "^0.1.0",
+    "urlsafe-base64": "^1.0.0"
   },
   "devDependencies": {
     "assert": "^1.4.1",
-    "request": "^2.81.0",
     "should": "^7.1.0",
     "supertest": "^3.0.0"
   }
